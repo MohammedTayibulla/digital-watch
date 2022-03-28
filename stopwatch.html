@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>stopwatch</title>
+</head>
+<body>
+<a href="index.html">clock</a>
+<h2><span id="sec"></span>:<span id="min"></span></h2>
+<button id="start">start</button>
+<button id="stop">stop</button>
+<button id="reset">reset</button>
+
+<script type="text/javascript">
+	let tens=0;
+	let sec=0;
+
+	let appendTens=document.querySelector("#min");
+	let appendSeconds=document.querySelector("#sec");
+	let start=document.querySelector("#start");
+	let stop=document.querySelector("#stop");
+	let reset=document.querySelector("#reset");
+appendSeconds.innerHTML="00";
+appendTens.innerHTML="00";
+	function timer(){
+		tens++;
+		if(tens<9){
+			appendTens.innerHTML="0"+tens;
+		}
+		if(tens>9){
+			appendTens.innerHTML=tens;
+		}
+		if(tens>99){
+			sec++;
+			appendSeconds.innerHTML="0"+sec;
+			tens=0;
+			appendTens.innerHTML="0"+0;
+		}
+		if(sec>9){
+			appendSeconds.innerHTML=seconds;
+		}
+
+	}
+start.onclick=()=>{
+interval=setInterval(timer)
+}
+stop.onclick=()=>{
+clearInterval(interval);
+}
+reset.onclick=()=>{
+appendSeconds.innerHTML="00";
+appendTens.innerHTML="00";
+clearInterval(interval);
+tens=0;
+sec=0;
+}
+</script>
+</body>
+</html>

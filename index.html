@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital Clock</title>
+</head>
+<body>
+	<a href="stopwatch.html">Stopwatch</a>
+<h1 id="display"></h1>
+<h1 id="day"></h1>
+<h1 id="watch"></h1>
+<script>
+	let display=document.querySelector("#display");
+	let today=document.querySelector("#day");
+	let watch=document.querySelector("#watch");
+
+	function clock(){
+	let time=new Date();
+	// display.innerHTML=time;''
+	
+}
+	setInterval(clock,1000);
+function simple(){
+	let timing=new Date();
+	let hours=timing.getHours();
+	let minutes=timing.getMinutes();
+	let seconds=timing.getSeconds();
+	let date=timing.toLocaleDateString();
+	let period="AM";
+
+	if(hours>12){
+		hours=hours-12;
+
+		period="PM";
+	}
+	if(minutes<10){
+		minutes="0"+minutes;
+	}
+	if(hours<10){
+		hours=`0${hours}`;
+	}
+	if(seconds<10){
+		seconds=`0${seconds}`;
+	}
+	today.innerHTML=`Today's Date is: ${date}`;
+	watch.innerHTML=`The time is :${hours}:${minutes}:${seconds} ${period}`;
+}
+setInterval(simple,1000);
+</script>
+</body>
+</html>
